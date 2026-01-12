@@ -36,20 +36,30 @@ function getFibNumbersTill(n, a = 0, b = 1, result = [0]) {
 console.log(getFibNumbersTill(9));
 
 // THIS WILL FIND ALL FIBONACCI NUMBERS LESS THAN OR EQUAL TO 'N'
-function fib(n) {
-  let fibArr = [0, 1];
+// function fib(n) {
+//   let fibArr = [0, 1];
 
-  while (fibArr[fibArr.length - 1] < n) {
-    let newFib = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
+//   while (fibArr[fibArr.length - 1] < n) {
+//     let newFib = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
 
-    if (newFib <= n) {
-      fibArr.push(newFib);
-    } else {
-      break;
-    }
+//     if (newFib <= n) {
+//       fibArr.push(newFib);
+//     } else {
+//       break;
+//     }
+//   }
+
+//   return fibArr;
+// }
+
+// USING RECURSION
+function fibonacciUpTo(n, a = 0, b = 1, result = [0]) {
+  if (b > n) {
+    return result;
   }
 
-  return fibArr;
+  result.push(b);
+  return fibonacciUpTo(n, b, a + b, result);
 }
 
-console.log(fib(5));
+console.log(fibonacciUpTo(10));
