@@ -24,12 +24,25 @@
 
 // console.log(sortArr(["z", "c", "a", "f", "s"]));
 
-// SOLUTION 2
+// SOLUTION 2 --> sorting algorithm
+// function sortArr(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (arr[i] < arr[j]) {
+//         [arr[i], arr[j]] = [arr[j], arr[i]];
+//       }
+//     }
+//   }
+//   return arr;
+// }
+// console.log(sortArr(["z", "c", "a", "f", "s"]));
+
+// SOLUTION 3 --> bubble sort
 function sortArr(arr) {
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i] < arr[j]) {
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       }
     }
   }
