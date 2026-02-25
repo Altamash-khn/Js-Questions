@@ -24,20 +24,39 @@
 
 
 // SOLUTION 2
+// function getBinary(n){
+//     let results = [""]
+    
+//     for(let i = 1; i <= n; i++){
+//         const newResults = [];
+        
+//         for(let key of results){
+//             newResults.push(key + "O")
+//             newResults.push(key + "1")
+//         }
+        
+//         results = newResults
+//     }
+    
+//     return results
+// }
+
+// SOLUTION 3
 function getBinary(n){
-    let results = [""]
-    
-    for(let i = 1; i <= n; i++){
-        const newResults = [];
-        
-        for(let key of results){
-            newResults.push(key + "O")
-            newResults.push(key + "1")
+    const results = [];
+
+    function binary(curr){
+        if(curr.length === n){
+            results.push(curr);
+            return
         }
-        
-        results = newResults
+
+        binary(curr + "0");
+        binary(curr + "1")
     }
-    
+
+    binary("");
     return results
 }
+
 console.log(getBinary(2));
