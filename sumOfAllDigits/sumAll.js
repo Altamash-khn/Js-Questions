@@ -32,15 +32,28 @@
 //   });
 // }
 
-function sumOfDigitsRecursive(num) {
-    if (!num) {
-        return 0;
+// SOLUTION 4
+// function sumOfDigitsRecursive(num) {
+//     if (!num) {
+//         return 0;
+//     }
+    
+//     num = Math.abs(num).toString()
+    
+//     return parseInt(num[num.length -1]) 
+//         + parseInt(sumOfDigitsRecursive(num.slice(0, num.length -1)));
+// }
+
+// SOLUTION 5
+function sumDigits(n){
+    if(n === 0){
+        return n
     }
     
-    num = num.toString()
+    n = Math.abs(n);
     
-    return parseInt(num[num.length -1]) 
-        + parseInt(sumOfDigitsRecursive(num.slice(0, num.length -1)));
+    return (n % 10) + sumDigits(Math.floor(n/10))
 }
+
 
 console.log(sumOfDigitsRecursive(1234))
